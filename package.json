@@ -1,12 +1,12 @@
 {
-  "name": "react-native-gifted-chat",
+  "name": "@azukidigital/react-native-gifted-chat",
   "version": "0.16.3",
   "description": "The most complete chat UI for React Native",
   "main": "node_modules/expo/AppEntry.js",
   "types": "lib/index.d.ts",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/FaridSafi/react-native-gifted-chat.git"
+    "url": "git+https://github.com/azukidigital/makethrough-schema.git"
   },
   "keywords": [
     "android",
@@ -32,11 +32,11 @@
     "tsc": "node_modules/.bin/tsc --noEmit",
     "start": "yarn config:dev && expo start",
     "start:web": "yarn config:dev && expo start -w --dev",
-    "build": "rm -rf lib/ && node_modules/.bin/tsc && cp flow-typedefs/*.js.flow lib/",
-    "test": "TZ=Europe/Paris jest --no-watchman",
-    "test:watch": "TZ=Europe/Paris jest --watch",
-    "test:coverage": "TZ=Europe/Paris jest --coverage",
-    "prepublishOnly": "yarn lint && yarn build && yarn test && yarn config:npm",
+    "build": "rimraf lib/ && node_modules/.bin/tsc && copyfiles -f flow-typedefs/*.js.flow lib/",
+    "test": "set TZ=Europe/Paris && jest --no-watchman",
+    "test:watch": "set TZ=Europe/Paris && jest --watch",
+    "test:coverage": "set TZ=Europe/Paris && jest --coverage",
+    "prepublishOnly": "yarn lint && yarn build && yarn config:npm",
     "postpublish": "yarn config:dev",
     "prettier": "./node_modules/.bin/prettier --write \"src/**/*.{ts,tsx}\""
   },
@@ -78,6 +78,7 @@
     "babel-core": "7.0.0-bridge.0",
     "babel-jest": "25.5.1",
     "babel-preset-expo": "^8.1.0",
+    "copyfiles": "^2.4.1",
     "expo": "^37.0.0",
     "expo-constants": "~9.0.0",
     "expo-image-picker": "~8.1.0",
@@ -96,6 +97,7 @@
     "react-native-web-maps": "0.2.0",
     "react-test-renderer": "16.9.0",
     "react-native-web": "^0.11.7",
+    "rimraf": "^3.0.2",
     "tslint": "6.1.2",
     "tslint-config-prettier": "1.18.0",
     "typescript": "^3.8.3"
@@ -120,5 +122,8 @@
     "hooks": {
       "pre-commit": "yarn lint:fix && yarn prettier && yarn tsc"
     }
+  },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/"
   }
 }
