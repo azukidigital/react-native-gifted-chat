@@ -113,19 +113,7 @@ export default class Composer extends React.Component<ComposerProps> {
         editable={!this.props.disableComposer}
         onLayout={this.onLayout}
         onChangeText={this.onChangeText}
-        style={[
-          styles.textInput,
-          this.props.textInputStyle,
-          {
-            ...Platform.select({
-              web: {
-                outlineWidth: 0,
-                outlineColor: 'transparent',
-                outlineOffset: 0,
-              },
-            }),
-          },
-        ]}
+        style={[styles.textInput, this.props.textInputStyle]}
         autoFocus={this.props.textInputAutoFocus}
         value={this.props.text}
         enablesReturnKeyAutomatically
