@@ -117,7 +117,6 @@ export default class Composer extends React.Component<ComposerProps> {
           styles.textInput,
           this.props.textInputStyle,
           {
-            height: this.props.composerHeight,
             ...Platform.select({
               web: {
                 outlineWidth: 0,
